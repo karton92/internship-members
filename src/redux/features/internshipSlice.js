@@ -15,7 +15,7 @@ export const internshipSlice = createSlice({
       const index = state.shoppingCart.findIndex((item) => item.name === name);
     },
 
-    editCart: (state) => {
+    updateIntern: (state) => {
       state.shoppingCart = [];
       state.cartItemsNumber = 0;
       state.cartSummary = 0;
