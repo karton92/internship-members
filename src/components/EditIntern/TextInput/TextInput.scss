@@ -1,0 +1,12 @@
+.text-input {
+  position: relative;
+  p {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: #a3270c;
+  }
+  .warning-icon {
+    right: 16px;
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "interns": [
+    {
+      "name": "Michał Augustyn",
+      "email": "michalaugustyn92@gmail.com",
+      "internshipStart": "2022-06-01",
+      "internshipEnd": "2022-09-01",
+      "id": 1
+    },
+    {
+      "name": "Joanna Kolarska",
+      "email": "kola@o2.pl",
+      "internshipStart": "2022-05-10",
+      "internshipEnd": "2022-05-31",
+      "id": 2
+    },
+    {
+      "name": "Jasiek Gil",
+      "email": "gilu123@o2.pl",
+      "internshipStart": "2022-05-09",
+      "internshipEnd": "2022-05-31",
+      "id": 3
+    },
+    {
+      "name": "Leonor Cross",
+      "email": "leonorcross@gronk.com",
+      "internshipStart": "2020-07-01",
+      "internshipEnd": "2020-10-11",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "name": "Marsh Mccall",
+      "email": "marshmccall@ultrimax.com",
+      "internshipStart": "2020-07-01T00:00+00Z",
+      "internshipEnd": "2020-09-30T00:00+00Z"
+    }
+  ]
+}

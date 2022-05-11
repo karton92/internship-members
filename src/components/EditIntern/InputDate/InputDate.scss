@@ -1,0 +1,59 @@
+.date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  @media (max-width: 560px) {
+    flex-wrap: wrap;
+  }
+  p {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: #a3270c;
+  }
+}
+
+.date-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  & input {
+    font-family: "roboto";
+    color: #555555;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .warning-icon {
+    right: 65px;
+  }
+
+  input {
+    padding: 0;
+    cursor: default;
+    &::-webkit-calendar-picker-indicator {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-image: url("../../../assets/images/calendar-picker.svg");
+      color: #222222;
+      cursor: pointer;
+      width: 20px;
+      height: 22px;
+      padding: 12px;
+      border-left: 2px solid #222222;
+    }
+  }
+}
+
+.add-intern .date-input input {
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
+}
