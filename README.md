@@ -1,66 +1,38 @@
-# Getting Started with Create React App
+<h2>Internship Members App with JSON Server</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_Welcome to my profile!<br>
+This is simple app to management new interns in company ;)<br>
+Work on this App give me a lot of fun (first time styled from Figma project) and I practiced how to use Axios with JSON Server.<br>
+Enjoy it!<br><br>
+PS. To check my app you must clone repo and run it localy<br>
+I am going to add them to Heroku in the near future._<br>
 
-## Available Scripts
+<h2>Installation</h2>
 
-In the project directory, you can run:
+_Below is how install and setting up app._
 
-### `yarn start`
+#### 1. Clone the repo
+   ```sh
+   git clone https://github.com/karton92/internship-members.git
+   ```
+#### 2. Install NPM packages
+   ```sh
+   npm install
+   ```
+#### 3. Run application (server will also start)
+   ```sh
+   npm start
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-API is available on http://localhost:3001/interns  using json-server. 
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2>Stack:</h2>
+1. React<br>
+2. JSON Server<br>
+3. Axios (GET, PUT, POST, DELETE)<br>
+4. Javascript<br>
+5. React Router<br>
+6. Material UI<br>
+7. SCSS<br>
+8. RWD<br>
+9. Hooks<br>
+10. Styled according to the Figma project<br>
+11. Optimization Care<br>
