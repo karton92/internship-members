@@ -4,7 +4,7 @@
   align-items: center;
   width: 100%;
   gap: 16px;
-  @media (max-width: 560px) {
+  @media (max-width: 550px) {
     flex-wrap: wrap;
   }
   p {
@@ -31,6 +31,9 @@
 
   .warning-icon {
     right: 65px;
+    @media (max-width: 600px) {
+      right: 50px;
+    }
   }
 
   input {
@@ -41,7 +44,7 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      background-image: url("../../../assets/images/calendar-picker.svg");
+      background-image: url("../../assets/images/calendar-picker.svg");
       color: #222222;
       cursor: pointer;
       width: 20px;
@@ -53,7 +56,7 @@
 }
 
 .add-intern .date-input input {
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     font-size: 14px;
   }
 }

@@ -18,13 +18,12 @@ form {
   height: 408px;
   gap: 32px;
   @media (max-width: 900px) {
-    max-width: 70vw;
+    max-width: 100%;
     height: auto;
     padding: 10px;
     gap: 30px;
   }
   @media (max-width: 600px) {
-    width: 80vw;
     height: auto;
   }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams } from "react-router";
 import axios from "axios";
 import "./AddIntern.scss";
+import { v4 as uuidv4 } from "uuid";
 
 // MATERIAL UI
 import Accordion from "@mui/material/Accordion";
@@ -10,16 +10,14 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 //COMPONENTS
-import TextInput from "../EditIntern/TextInput/TextInput";
-import InputDate from "../EditIntern/InputDate/InputDate";
-import ButtonSubmit from "../EditIntern/ButtonSubmit/ButtonSubmit";
+import TextInput from "../TextInput/TextInput";
+import InputDate from "../InputDate/InputDate";
+import ButtonSubmit from "../ButtonSubmit/ButtonSubmit";
 
 //IMPORT FUNCTIONS
-import { isValidEmail, isWhiteSpacesBetween } from "../../helpers/validationFunctions";
+import { processFormTrim, checkFormValidation } from "../../helpers/validationFunctions";
 
-const AddIntern = ({ title }) => {
-  const { id } = useParams();
-
+const AddIntern = ({ title, fetchInterns }) => {
   //INPUT VALUE HOOKS
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -43,44 +41,28 @@ const AddIntern = ({ title }) => {
       console.log("Error:", error.message);
     });
     console.log("Form send successful");
+    setName("");
+    setEmail("");
+    setInternshipStart("");
+    setInternshipEnd("");
+    fetchInterns();
   };
 
-  const processFormTrim = () => {
-    setName((previousState) => previousState.trim());
-    setEmail((previousState) => previousState.trim());
-  };
-
-  const checkFormValidation = useCallback(() => {
-    //VALIDATION SECTION
-    setNameError(!name ? "This field is required" : isWhiteSpacesBetween(name) ? "There is some white spaces" : "");
-    setEmailError(!email ? "This field is required" : !isValidEmail(email) ? "Incorrect email address" : "");
-    setStartDateError(
-      !internshipStart
-        ? "This data field is required"
-        : new Date(internshipStart).getTime() > new Date(internshipEnd).getTime()
-        ? "This date is not correct"
-        : ""
-    );
-    setEndDateError(
-      !internshipEnd
-        ? "This data field is required"
-        : new Date(internshipEnd).getTime() < new Date(internshipStart).getTime()
-        ? "This date is not correct"
-        : ""
-    );
+  const checkValidation = useCallback(() => {
+    checkFormValidation(name, email, internshipStart, internshipEnd, setNameError, setEmailError, setStartDateError, setEndDateError);
   }, [email, internshipEnd, internshipStart, name]);
 
   const handleAddIntern = (e) => {
     e.preventDefault();
-    processFormTrim();
-    checkFormValidation();
-    addIntern({ name, email, internshipStart, internshipEnd }, id);
+    processFormTrim(setName, setEmail);
+    checkValidation();
+    addIntern({ name, email, internshipStart, internshipEnd }, uuidv4());
   };
 
   useEffect(() => {
-    checkFormValidation();
+    checkValidation();
     setIsFormError(Boolean(nameError || emailError || startDateError || endDateError));
-  }, [nameError, emailError, startDateError, endDateError, checkFormValidation]);
+  }, [nameError, emailError, startDateError, endDateError, checkValidation]);
 
   return (
     <Accordion className="add-intern">

@@ -4,13 +4,13 @@ import axios from "axios";
 import "./EditIntern.scss";
 
 //COMPONENTS
-import TextInput from "./TextInput/TextInput";
-import InputDate from "./InputDate/InputDate";
-import ButtonBack from "./ButtonBack/ButtonBack";
-import ButtonSubmit from "./ButtonSubmit/ButtonSubmit";
+import TextInput from "../TextInput/TextInput";
+import InputDate from "../InputDate/InputDate";
+import ButtonBack from "../ButtonBack/ButtonBack";
+import ButtonSubmit from "../ButtonSubmit/ButtonSubmit";
 
 //IMPORT FUNCTIONS
-import { isValidEmail, isWhiteSpacesBetween } from "../../helpers/validationFunctions";
+import { processFormTrim, checkFormValidation } from "../../helpers/validationFunctions";
 
 const EditIntern = () => {
   const { id } = useParams();
@@ -58,42 +58,21 @@ const EditIntern = () => {
     console.log("Form send successful");
   };
 
-  const processFormTrim = () => {
-    setName((previousState) => previousState.trim());
-    setEmail((previousState) => previousState.trim());
-  };
-
-  const checkFormValidation = useCallback(() => {
-    //VALIDATION SECTION
-    setNameError(!name ? "This field is required" : isWhiteSpacesBetween(name) ? "There is some white spaces" : "");
-    setEmailError(!email ? "This field is required" : !isValidEmail(email) ? "Incorrect email address" : "");
-    setStartDateError(
-      !internshipStart
-        ? "This data field is required"
-        : new Date(internshipStart).getTime() > new Date(internshipEnd).getTime()
-        ? "This date is not correct"
-        : ""
-    );
-    setEndDateError(
-      !internshipEnd
-        ? "This data field is required"
-        : new Date(internshipEnd).getTime() < new Date(internshipStart).getTime()
-        ? "This date is not correct"
-        : ""
-    );
+  const checkValidation = useCallback(() => {
+    checkFormValidation(name, email, internshipStart, internshipEnd, setNameError, setEmailError, setStartDateError, setEndDateError);
   }, [email, internshipEnd, internshipStart, name]);
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
-    processFormTrim();
-    checkFormValidation();
+    processFormTrim(setName, setEmail);
+    checkValidation();
     updateIntern({ name, email, internshipStart, internshipEnd }, id);
   };
 
   useEffect(() => {
-    checkFormValidation();
+    checkValidation();
     setIsFormError(Boolean(nameError || emailError || startDateError || endDateError));
-  }, [nameError, emailError, startDateError, endDateError, checkFormValidation]);
+  }, [nameError, emailError, startDateError, endDateError, checkValidation]);
 
   return (
     <>
