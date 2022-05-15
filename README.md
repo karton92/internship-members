@@ -1,4 +1,4 @@
-<h2>Internship Members App with JSON Server</h2>
+<h2>Internship Members App + JSON Server</h2>
 
 _Welcome to my profile!<br>
 This is simple app to management new interns in company ;)<br>
