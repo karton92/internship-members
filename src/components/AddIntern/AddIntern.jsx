@@ -33,14 +33,17 @@ const AddIntern = ({ title, fetchInterns }) => {
 
   const addIntern = async (data, id) => {
     if (isFormError) return console.log("You have some error in form!");
-    const response = await axios({
-      method: "post",
-      url: `http://localhost:3001/interns/`,
-      data: { ...data, id },
-    }).catch((error) => {
-      console.log("Error:", error.message);
-    });
-    console.log("Form send successful");
+
+    try {
+      const response = await axios({
+        method: "post",
+        url: `http://localhost:3001/interns/`,
+        data: { ...data, id },
+      });
+      console.log("New intern add successful");
+    } catch (error) {
+      console.error(error);
+    }
     setName("");
     setEmail("");
     setInternshipStart("");
@@ -71,11 +74,25 @@ const AddIntern = ({ title, fetchInterns }) => {
       </AccordionSummary>
       <AccordionDetails>
         <form onSubmit={handleAddIntern}>
-          <TextInput labelName={"Full name *"} isFocus={true} error={nameError} value={name} setValue={setName} />
-          <TextInput labelName={"Email address *"} isFocus={false} error={emailError} value={email} setValue={setEmail} />
+          <TextInput labelName={"Full name *"} type={"text"} id={"name"} isFocus={true} error={nameError} value={name} setValue={setName} />
+          <TextInput labelName={"Email address *"} type={"email"} id={"email"} isFocus={false} error={emailError} value={email} setValue={setEmail} />
           <div className="date-container">
-            <InputDate labelName={"Internship start *"} error={startDateError} value={internshipStart} setValue={setInternshipStart} />
-            <InputDate labelName={"Internship end *"} error={endDateError} value={internshipEnd} setValue={setInternshipEnd} />
+            <InputDate
+              labelName={"Internship start *"}
+              type={"date"}
+              id={"internStart"}
+              error={startDateError}
+              value={internshipStart}
+              setValue={setInternshipStart}
+            />
+            <InputDate
+              labelName={"Internship end *"}
+              type={"date"}
+              id={"internEnd"}
+              error={endDateError}
+              value={internshipEnd}
+              setValue={setInternshipEnd}
+            />
           </div>
           <ButtonSubmit title="Add new intern" />
         </form>

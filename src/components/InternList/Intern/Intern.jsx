@@ -7,7 +7,12 @@ import "./Intern.scss";
 
 const Intern = ({ id, name, fetchInterns }) => {
   const deleteIntern = async () => {
-    const response = await axios.delete(`http://localhost:3001/interns/${id}`);
+    try {
+      const response = await axios.delete(`http://localhost:3001/interns/${id}`);
+      console.log("Intern delete sucessful");
+    } catch (error) {
+      console.error(error);
+    }
     await fetchInterns();
   };
 
