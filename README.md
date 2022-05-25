@@ -1,3 +1,4 @@
+<img src="/readme_view.jpg" alt="Site view" width="100%">
 <h2>Internship Members App + JSON Server</h2>
 
 _Welcome to my profile!<br>
